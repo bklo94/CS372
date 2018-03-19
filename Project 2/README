@@ -1,0 +1,39 @@
+Prerequisites :
+Make sure there are two instances of the shell on the same flip server
+Make sure gcc compiler is available
+Make sure python2.7 is available
+
+ftclient and ftserver can be in different directories
+
+Compilation instructions:
+ftserver must be compiled with gcc with the command
+gcc ftserver.c -o ftserver
+
+Execution instructions:
+
+ftserver is started with
+./ftserver <portnumber1>
+
+ftclient to list the directories is started with
+python ftclient.py <flipserver> <portnumber1> <command> <portnumber2>
+
+ftclient to get a file is started with
+python ftclient.py <flipserver> <portnumber1> <command> <filename> <portnumber2>
+
+portnumber1 corresponds to the same portnumber1 in the ftserver.
+Examples
+
+./ftserver 10456
+
+To list the directories
+python ftclient.py flip1 10456 -l 10457
+To get a file
+python ftclient.py flip1 10456 -g README.txt 10457
+
+You can exit out of the ftclient or ftserver with a KeyboardInterrupt(ctrl+C)
+
+Notes:
+portnumber1 and portnumber2 cannot be the same
+Please make sure the flip servers are the same for the server and client
+If you have a binding port error, please choose a different port since it may be in use.
+ftserver and ftclient do not have to be in the same directory to work
